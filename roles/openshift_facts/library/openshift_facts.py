@@ -1082,7 +1082,9 @@ class OpenShiftFacts(object):
                 dict: The generated default facts
         """
         defaults = {}
-        ip_addr = self.system_facts['ansible_default_ipv4']['address']
+        # Work around VirtualBox/Vagrant NAT interface
+        ip_addr = self.system_facts['ansible_eth1']['ipv4']['address'] 
+        # ip_addr = self.system_facts['ansible_default_ipv4']['address']
         exit_code, output, _ = module.run_command(['hostname', '-f'])  # noqa: F405
         hostname_f = output.strip() if exit_code == 0 else ''
         hostname_values = [hostname_f, self.system_facts['ansible_nodename'],
