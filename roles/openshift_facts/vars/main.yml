@@ -9,3 +9,5 @@ vars_openshift_facts_system_facts:
   ansible_virtualization_type: "{{ vars.ansible_virtualization_type }}"
   ansible_virtualization_role: "{{ vars.ansible_virtualization_role }}"
   ansible_system_vendor: "{{ vars.ansible_system_vendor }}"
+  ansible_eth1: "{{ vars.ansible_eth1 }}"
+  
